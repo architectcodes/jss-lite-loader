@@ -1,14 +1,22 @@
+const fs = require('fs');
+const path = require('path');
+
 const test = require('ava');
 const requireFromString = require('require-from-string');
 const cssInJs = require('css-in-js');
+const setsEqual = require('sets-equal');
 
 const cssInJsLoader = require('.');
+
+const fixturesPath =
+  path.resolve(__dirname, 'test/fixtures');
 
 const mockLoaderApi = (mocks) => (
   Object.assign({
     exec: source => requireFromString(source),
     cacheable: () => {},
-    resourcePath: '/any/file.js',
+    addDependency: () => {},
+    resourcePath: path.resolve(fixturesPath, 'entry.js'),
   }, mocks)
 );
 
@@ -46,4 +54,28 @@ test(
       },
     }), ['']);
   })
+);
+
+test(
+  'Reports dependencies',
+  (assert) => {
+    const actual = new Set();
+
+    cssInJsLoader.apply(mockLoaderApi({
+      addDependency: dep => actual.add(dep),
+    }), ['']);
+
+    const dependenciesPath =
+      path.resolve(fixturesPath, 'dependencies');
+    const expected = new Set(
+      fs.readdirSync(dependenciesPath).map(filename => (
+        path.resolve(dependenciesPath, filename)
+      ))
+    );
+
+    assert.ok(setsEqual(
+      actual,
+      expected
+    ));
+  }
 );
