@@ -18,14 +18,19 @@ const flatListOfKeys = (object) => {
 module.exports = function cssInJsLoader(input) {
   this.cacheable();
 
-  flatListOfKeys(requireList(this.resourcePath))
-    .forEach(dependency => this.addDependency(dependency));
+  // Report dependencies
+  const dependencies = flatListOfKeys(requireList(this.resourcePath));
+  dependencies.forEach(dependency => this.addDependency(dependency));
 
-  const styleObject = this.exec(input, this.resourcePath);
+  // Get the stylesheet object
+  const stylesheetObject = this.exec(input, this.resourcePath);
+
+  // Clear the require cache
+  dependencies.forEach(dep => delete require.cache[dep]);
 
   return (
     `module.exports = '${
-      cssInJs(styleObject)
+      cssInJs(stylesheetObject)
         .replace(/'/g, '\\\'')
         .replace(/\n/g, '\\n')
     }';`
