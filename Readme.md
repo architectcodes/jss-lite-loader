@@ -44,7 +44,7 @@ css-in-js-loader is very flexible. Feel free to combine it with other loaders �
 
 Here’s one way to use it in a generic hyperscript component:
 
-**`style.js`**
+**`🗋 style.js`**
 
 ```js
 const uniqueHash = require('hash-sum');
@@ -64,7 +64,7 @@ export const stylesheet = {
 };
 ```
 
-**`button.js`**
+**`🗋 button.js`**
 
 ```js
 require('style!css-in-js!./style');
