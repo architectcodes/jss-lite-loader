@@ -1,5 +1,3 @@
-**Heads up!** This is a work in progress! Not ready for use yet!
-
 [![Travis – build status
 ](https://img.shields.io/travis/tomekwi/css-in-js-loader/master.svg?style=flat-square
 )](https://travis-ci.org/tomekwi/css-in-js-loader
