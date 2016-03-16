@@ -72,6 +72,7 @@ test(
         path.resolve(dependenciesPath, filename)
       ))
     );
+    expected.add('external');
 
     assert.ok(setsEqual(
       actual,

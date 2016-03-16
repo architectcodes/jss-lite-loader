@@ -2,6 +2,10 @@ const cssInJs = require('css-in-js');
 const requireList = require('require-list');
 
 const flatListOfKeys = (object) => {
+  if (typeof object !== 'object' || object === null) {
+    return [];
+  }
+
   const keys = Object.keys(object);
 
   return keys.reduce((result, key) => (
