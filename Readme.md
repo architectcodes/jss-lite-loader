@@ -1,12 +1,12 @@
 [![Travis – build status
-](https://img.shields.io/travis/tomekwi/css-in-js-loader/master.svg?style=flat-square
-)](https://travis-ci.org/tomekwi/css-in-js-loader
+](https://img.shields.io/travis/tomekwi/jss-lite-loader/master.svg?style=flat-square
+)](https://travis-ci.org/tomekwi/jss-lite-loader
 ) [![Coveralls – test coverage
-](https://img.shields.io/coveralls/tomekwi/css-in-js-loader.svg?style=flat-square
-)](https://coveralls.io/r/tomekwi/css-in-js-loader
+](https://img.shields.io/coveralls/tomekwi/jss-lite-loader.svg?style=flat-square
+)](https://coveralls.io/r/tomekwi/jss-lite-loader
 ) [![David – status of dependencies
-](https://img.shields.io/david/tomekwi/css-in-js-loader.svg?style=flat-square
-)](https://david-dm.org/tomekwi/css-in-js-loader
+](https://img.shields.io/david/tomekwi/jss-lite-loader.svg?style=flat-square
+)](https://david-dm.org/tomekwi/jss-lite-loader
 ) [![Code style: airbnb
 ](https://img.shields.io/badge/code%20style-airbnb-777777.svg?style=flat-square
 )](https://github.com/airbnb/javascript
@@ -15,7 +15,7 @@
 
 
 
-# css-in-js-loader
+# jss-lite-loader
 
 **Write stylesheets in JS.  
 Works with any stack.**
@@ -28,7 +28,7 @@ Works with any stack.**
 ## Installation
 
 ```sh
-npm install [--save] css-in-js-loader
+npm install [--save] jss-lite-loader
 ```
 
 
@@ -38,7 +38,7 @@ npm install [--save] css-in-js-loader
 
 ## Usage
 
-css-in-js-loader is very flexible. Feel free to combine it with other loaders – for example, [style-loader](https://github.com/webpack/style-loader) for adding the styles to the page or [apply-loader](https://github.com/mogelbrod/apply-loader) for configurable stylesheets.
+jss-lite-loader is very flexible. Feel free to combine it with other loaders – for example, [style-loader](https://github.com/webpack/style-loader) for adding the styles to the page or [apply-loader](https://github.com/mogelbrod/apply-loader) for configurable stylesheets.
 
 Here’s one way to use it in a generic hyperscript component:
 
@@ -65,7 +65,7 @@ export const stylesheet = {
 **`🗋 button.js`**
 
 ```js
-require('style!css-in-js!./style');
+require('style!jss-lite!./style');
 
 import { className } from './style';
 

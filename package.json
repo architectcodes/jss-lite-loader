@@ -1,7 +1,7 @@
 {
-  "name": "css-in-js-loader",
+  "name": "jss-lite-loader",
   "version": "0.0.0",
-  "description": "A webpack loader for css-in-js",
+  "description": "A webpack loader for jss-lite",
   "main": "index.js",
   "scripts": {
     "develop": "ava --watch",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tomekwi/css-in-js-loader.git"
+    "url": "git+https://github.com/tomekwi/jss-lite-loader.git"
   },
   "author": "Tomek Wiszniewski <t.wiszniewski@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tomekwi/css-in-js-loader/issues"
+    "url": "https://github.com/tomekwi/jss-lite-loader/issues"
   },
-  "homepage": "https://github.com/tomekwi/css-in-js-loader#readme",
+  "homepage": "https://github.com/tomekwi/jss-lite-loader#readme",
   "devDependencies": {
     "ava": "^0.13.0",
     "coveralls": "^2.11.8",
@@ -27,7 +27,7 @@
     "sets-equal": "^1.0.0"
   },
   "dependencies": {
-    "css-in-js": "^1.1.0",
+    "jss-lite": "^1.1.1",
     "require-list": "github:tomekwi/require-list#f3d660e"
   }
 }
