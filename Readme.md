@@ -46,7 +46,7 @@ jss-lite-loader is very flexible. Feel free to combine it with other loaders –
 
 You can use it like a good old CSS preprocessor like LESS or SASS:
 
-**`🗋 config.js`**
+**`∎ config.js`**
 
 ```js
 const color = require('color');
@@ -55,7 +55,7 @@ exports.buttonBackground =
   color('#F44336').alpha(0.5).lighten(0.5).rgbaColor();
 ```
 
-**`🗋 style.js`**
+**`∎ style.js`**
 
 ```js
 const { buttonBackground } = require('./config');
@@ -74,7 +74,7 @@ module.exports = {
 };
 ```
 
-**`🗋 index.js`**
+**`∎ index.js`**
 
 ```js
 require('style!jss-lite!./style');
@@ -86,7 +86,7 @@ require('style!jss-lite!./style');
 
 Because the API is so simple, you can add lots of features yourself. Here’s an example of unique, auto-generated class names and a configurable stylesheet function (for example, coming from a style framework) in a reusable hyperscript component. Whoah, that’s a lot at once!
 
-**`🗋 style.js`**
+**`∎ style.js`**
 
 ```js
 const hash = require('hash-sum')(__filename);
@@ -111,7 +111,7 @@ module.exports = ({ backgroundColor }) => ({
 Object.assign(module.exports, { classes });
 ```
 
-**`🗋 button.js`**
+**`∎ button.js`**
 
 ```js
 require('style!jss-lite!apply?{ obj: { backgroundColor: "#F44336" } }!./style');
