@@ -1,4 +1,4 @@
-const cssInJs = require('css-in-js');
+const jssLite = require('jss-lite');
 const requireList = require('require-list');
 
 const flatListOfKeys = (object) => {
@@ -15,7 +15,7 @@ const flatListOfKeys = (object) => {
   ), []);
 };
 
-module.exports = function cssInJsLoader(input) {
+module.exports = function jssLiteLoader(input) {
   this.cacheable();
 
   // Report dependencies
@@ -30,7 +30,7 @@ module.exports = function cssInJsLoader(input) {
 
   return (
     `module.exports = '${
-      cssInJs(stylesheetObject)
+      jssLite(stylesheetObject)
         .replace(/'/g, '\\\'')
         .replace(/\n/g, '\\n')
     }';`

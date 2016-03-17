@@ -3,10 +3,10 @@ const path = require('path');
 
 const test = require('ava');
 const requireFromString = require('require-from-string');
-const cssInJs = require('css-in-js');
+const jssLite = require('jss-lite');
 const setsEqual = require('sets-equal');
 
-const cssInJsLoader = require('.');
+const jssLiteLoader = require('.');
 
 const fixturesPath =
   path.resolve(__dirname, 'test/fixtures');
@@ -25,7 +25,7 @@ test(
   (assert) => {
     const styleObject = { '.a': { margin: '0' } };
     const result = requireFromString(
-      cssInJsLoader.apply(mockLoaderApi(), [
+      jssLiteLoader.apply(mockLoaderApi(), [
         `module.exports = ${JSON.stringify(styleObject)};`,
       ])
     );
@@ -37,7 +37,7 @@ test(
 
     assert.is(
       result,
-      cssInJs(styleObject)
+      jssLite(styleObject)
     );
   }
 );
@@ -47,7 +47,7 @@ test(
   (assert) => new Promise((resolve, reject) => {
     setTimeout(reject, 100);
 
-    cssInJsLoader.apply(mockLoaderApi({
+    jssLiteLoader.apply(mockLoaderApi({
       cacheable: () => {
         assert.pass();
         resolve();
@@ -61,7 +61,7 @@ test(
   (assert) => {
     const actual = new Set();
 
-    cssInJsLoader.apply(mockLoaderApi({
+    jssLiteLoader.apply(mockLoaderApi({
       addDependency: dep => actual.add(dep),
     }), ['']);
 
