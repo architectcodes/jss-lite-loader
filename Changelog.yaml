@@ -1,3 +1,8 @@
+1.0.1:
+  date: 2016-03-17
+  fixed bugs:
+    - Fixed broken dependency
+
 1.0.0:
-  date: 2016-03-16
+  date: 2016-03-17
   note: Initial relase
