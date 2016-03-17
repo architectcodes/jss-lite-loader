@@ -1,6 +1,6 @@
 {
   "name": "jss-lite-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A webpack loader for jss-lite",
   "main": "index.js",
   "scripts": {
