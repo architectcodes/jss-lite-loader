@@ -40,37 +40,86 @@ npm install [--save] jss-lite-loader
 
 jss-lite-loader is very flexible. Feel free to combine it with other loaders – for example, [style-loader](https://github.com/webpack/style-loader) for adding the styles to the page or [apply-loader](https://github.com/mogelbrod/apply-loader) for configurable stylesheets.
 
-Here’s one way to use it in a generic hyperscript component:
+<a                                                       id="/usage/simple"></a>
+
+### Easy to use
+
+You can use it like a good old CSS preprocessor like LESS or SASS:
+
+**`🗋 config.js`**
+
+```js
+const color = require('color');
+
+exports.buttonBackground =
+  color('#F44336').alpha(0.5).lighten(0.5).rgbaColor();
+```
 
 **`🗋 style.js`**
 
 ```js
-const uniqueHash = require('hash-sum');
-export const className = uniqueHash(__filename);
+const { buttonBackground } = require('./config');
 
-export const stylesheet = {
-  [`.${className}`]: {
+module.exports = {
+  '.button': {
     'width': '50px',
-    'background-color': indigo,
+    'background-color': buttonBackground,
   },
 
   '@media screen and (min-width: 80em)': {
-    [`.${className}`]: {
+    '.button': {
       'width': '100%',
     },
   },
 };
 ```
 
-**`🗋 button.js`**
+**`🗋 index.js`**
 
 ```js
 require('style!jss-lite!./style');
+```
 
-import { className } from './style';
+<a                                                     id="/usage/powerful"></a>
 
-export default () =>
-  h(`button.${className}`)
+### Flexible thus powerful
+
+Because the API is so simple, you can add lots of features yourself. Here’s an example of unique, auto-generated class names and a configurable stylesheet function (for example, coming from a style framework) in a reusable hyperscript component. Whoah, that’s a lot at once!
+
+**`🗋 style.js`**
+
+```js
+const hash = require('hash-sum')(__filename);
+
+const classes = {
+  button = `${hash}-button`,
+};
+
+module.exports = ({ backgroundColor }) => ({
+  [`.${classes.button}`]: {
+    'width': '50px',
+    'background-color': indigo,
+  },
+
+  '@media screen and (min-width: 80em)': {
+    [`.${classes.button}`]: {
+      'width': '100%',
+    },
+  },
+});
+
+Object.assign(module.exports, { classes });
+```
+
+**`🗋 button.js`**
+
+```js
+require('style!jss-lite!apply?{ obj: { backgroundColor: "#F44336" } }!./style');
+const { classes } = require('./style');
+
+export default () => (
+  h(`button.${classes.button}`)
+);
 ```
 
 
