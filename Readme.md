@@ -60,7 +60,7 @@ exports.buttonBackground =
 ```js
 const { buttonBackground } = require('./config');
 
-module.exports = {
+exports.stylesheet = {
   '.button': {
     'width': '50px',
     'background-color': buttonBackground,
@@ -95,7 +95,9 @@ const classes = {
   button = `${hash}-button`,
 };
 
-module.exports = ({ backgroundColor }) => ({
+module.exports = ({
+  backgroundColor,
+}) => ({ stylesheet: {
   [`.${classes.button}`]: {
     'width': '50px',
     'background-color': indigo,
@@ -106,7 +108,7 @@ module.exports = ({ backgroundColor }) => ({
       'width': '100%',
     },
   },
-});
+} });
 
 Object.assign(module.exports, { classes });
 ```

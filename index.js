@@ -23,7 +23,7 @@ module.exports = function jssLiteLoader(input) {
   dependencies.forEach(dependency => this.addDependency(dependency));
 
   // Get the stylesheet object
-  const stylesheetObject = this.exec(input, this.resourcePath);
+  const stylesheetObject = this.exec(input, this.resourcePath).stylesheet;
 
   // Clear the require cache
   dependencies.forEach(dep => delete require.cache[dep]);

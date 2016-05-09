@@ -1,3 +1,9 @@
+2.0.0:
+  date: 2016-05-09
+  breaking changes:
+    - We now take the `stylesheet` export into account
+
+
 1.0.1:
   date: 2016-03-17
   fixed bugs:

@@ -21,12 +21,12 @@ const mockLoaderApi = (mocks) => (
 );
 
 test(
-  'Returns a module exporting a string of CSS',
+  'Returns a module exporting a string of CSS as `stylesheet`',
   (assert) => {
     const styleObject = { '.a': { margin: '0' } };
     const result = requireFromString(
       jssLiteLoader.apply(mockLoaderApi(), [
-        `module.exports = ${JSON.stringify(styleObject)};`,
+        `exports.stylesheet = ${JSON.stringify(styleObject)};`,
       ])
     );
 
@@ -63,7 +63,7 @@ test(
 
     jssLiteLoader.apply(mockLoaderApi({
       addDependency: dep => actual.add(dep),
-    }), ['']);
+    }), ['module.exports = { stylesheet: {} }']);
 
     const dependenciesPath =
       path.resolve(fixturesPath, 'dependencies');
