@@ -23,7 +23,7 @@ Works with any stack.**
 
 
 
-<a                                                 id="/installation"></a>&nbsp;
+<a id="/installation"></a>&nbsp;
 
 ## Installation
 
@@ -34,13 +34,13 @@ npm install [--save] jss-lite-loader
 
 
 
-<a                                                        id="/usage"></a>&nbsp;
+<a id="/usage"></a>&nbsp;
 
 ## Usage
 
 jss-lite-loader is very flexible. Feel free to combine it with other loaders – for example, [style-loader](https://github.com/webpack/style-loader) for adding the styles to the page or [apply-loader](https://github.com/mogelbrod/apply-loader) for configurable stylesheets.
 
-<a                                                       id="/usage/simple"></a>
+<a id="/usage/simple"></a>
 
 ### Easy to use
 
@@ -127,7 +127,7 @@ export default () => (
 
 
 
-<a                                                      id="/license"></a>&nbsp;
+<a id="/license"></a>&nbsp;
 
 ## License
 
