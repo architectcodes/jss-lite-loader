@@ -120,7 +120,7 @@ document.head.appendChild(
 );
 ```
 
-Until now sharing variables between JS and CSS was [notoriously](http://stackoverflow.com/a/5885372/2816199) [difficult](https://github.com/7sempra/rosetta).
+Until now sharing variables between JS and CSS [was](http://www.ericponto.com/blog/2014/09/17/share-css-variables-with-javascript/) [notoriously](http://stackoverflow.com/a/5885372/2816199) [difficult](https://github.com/7sempra/rosetta).
 
 <a id="/usage/powerful"></a>
 
