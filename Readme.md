@@ -80,7 +80,49 @@ exports.stylesheet = {
 require('style!jss-lite!./style');
 ```
 
-<a                                                     id="/usage/powerful"></a>
+<a id="/usage/code-sharing"></a>
+
+### Sharing code between JS and CSS
+
+Here’s a problem I encountered recently, which turned out to be a perfect match for *jss-lite-loader*. I use a bunch of brand-specific colors in my *jss-lite* stylesheets:
+
+**`∎ header.js`**
+
+```js
+const colors = require('material-colors');
+
+const headerColor = exports.headerColor =
+  materialColors.grey[800];
+
+exports.stylesheet = {
+  '.header': {
+    'height': '60px',
+    'background-color': headerColor,
+  },
+};
+```
+
+And here’s the wow. I can use the same values in JS for things CSS can’t do. For example, setting the [`theme-color`](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android):
+
+**`∎ index.js`**
+
+```js
+const h = require('hyperscript');
+
+// This gets rendered and injected as CSS:
+require('style!jss-lite!./header');
+
+// The same file can be imported as a pure JS module, free of side effects:
+const { headerColor } = require('./header');
+
+document.head.appendChild(
+  h('meta', { name: 'theme-color', content: headerColor })
+);
+```
+
+Until now sharing variables between JS and CSS was [notoriously](http://stackoverflow.com/a/5885372/2816199) [difficult](https://github.com/7sempra/rosetta).
+
+<a id="/usage/powerful"></a>
 
 ### Flexible thus powerful
 
